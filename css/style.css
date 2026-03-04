@@ -1,0 +1,997 @@
+/* ハンバーガーメニュー */
+/*============
+  nav
+  =============*/
+nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -405px;
+  bottom: 0;
+  width: 405px;
+  background: rgb(101, 0, 11, 0.25);
+  /* Light accent background to match #600000 */
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: .5s;
+  z-index: 3;
+}
+
+.open nav {
+  left: 0;
+}
+
+nav .inner {
+  padding: 25px;
+}
+
+nav .inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav .inner ul li {
+  position: relative;
+  margin: 0;
+  border-bottom: none;
+  /* Remove underline */
+}
+
+nav .inner ul li a {
+  display: block;
+  color: white;
+  font-size: 19px;
+  /* Scaled 35% */
+  padding: 1.35em;
+  /* Scaled 35% */
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+nav .inner ul li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fafafa;
+}
+
+@media screen and (max-width: 767px) {
+  nav {
+    left: -324px;
+    width: 324px;
+  }
+}
+
+
+/*============
+  @keyframes
+  =============*/
+@keyframes equalizer01 {
+  0% {
+    width: 70%;
+  }
+
+  10% {
+    width: 50%;
+  }
+
+  20% {
+    width: 100%;
+  }
+
+  30% {
+    width: 10%;
+  }
+
+  40% {
+    width: 50%;
+  }
+
+  50% {
+    width: 70%;
+  }
+
+  60% {
+    width: 50%;
+  }
+
+  70% {
+    width: 10%;
+  }
+
+  80% {
+    width: 100%;
+  }
+
+  90% {
+    width: 10%;
+  }
+
+  100% {
+    width: 70%;
+  }
+}
+
+@keyframes equalizer02 {
+  0% {
+    width: 30%;
+  }
+
+  10% {
+    width: 20%;
+  }
+
+  20% {
+    width: 40%;
+  }
+
+  30% {
+    width: 10%;
+  }
+
+  40% {
+    width: 20%;
+  }
+
+  50% {
+    width: 30%;
+  }
+
+  60% {
+    width: 20%;
+  }
+
+  70% {
+    width: 10%;
+  }
+
+  80% {
+    width: 40%;
+  }
+
+  90% {
+    width: 10%;
+  }
+
+  100% {
+    width: 30%;
+  }
+}
+
+/*============
+  .toggle_btn
+  =============*/
+.toggle_btn {
+  display: block;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  width: 81px;
+  height: 41px;
+  transform: translate(0, 0);
+  transition: all .5s;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.open .toggle_btn {
+  left: 435px;
+}
+
+.toggle_btn span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 41px;
+  height: 3px;
+  background-color: rgba(96, 0, 0, 0.6);
+  /* Slightly lighter #600000 */
+  transition: all .5s;
+}
+
+.toggle_btn span:nth-child(1) {
+  top: 7px;
+  width: 41px;
+  /* アニメーションを消し、長さを41pxに固定 */
+}
+
+.toggle_btn span:nth-child(2) {
+  top: 20px;
+  width: 41px;
+  /* アニメーションを消し、長さを41pxに固定 */
+}
+
+.toggle_btn span:nth-child(3) {
+  top: 34px;
+  width: 41px;
+  /* アニメーションを消し、長さを41pxに固定 */
+}
+
+.open .toggle_btn span {
+  background-color: #fff;
+  width: 41px;
+}
+
+.open .toggle_btn span:nth-child(1) {
+  transform: translate(0, 13px) rotate(-45deg);
+  animation: unset;
+}
+
+.open .toggle_btn span:nth-child(2) {
+  opacity: 0;
+  animation: unset;
+}
+
+.open .toggle_btn span:nth-child(3) {
+  transform: translate(0, -14px) rotate(45deg);
+  animation: unset;
+}
+
+@media screen and (max-width: 767px) {
+  .open .toggle_btn {
+    left: 344px;
+  }
+}
+
+/*============
+  #mask
+  =============*/
+#mask {
+  display: none;
+}
+
+.open #mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .8;
+  z-index: 2;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+/*============
+  main
+  =============*/
+main {
+  padding: 50px;
+}
+
+main h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+/*============
+  body
+  =============*/
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+/* HP */
+/* プロフィール */
+/* プロフィール全体 */
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+/* 画像 */
+.rounded-box {
+  width: 250px;
+  height: 250px;
+  border: 3px solid rgba(96, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.myHead {
+  width: 65%;
+  transform: rotate(-45deg);
+}
+
+/* 右 */
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  /* テキスト間の縦の余白 */
+}
+
+.name-en {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: normal;
+}
+
+.name-ja {
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+}
+
+/* Hobbyの行を横並びに */
+.hobby-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Hobbyの丸いバッジ */
+.hobby-badge {
+  background-color: #600000;
+  /* メインカラーの赤色に統一 */
+  color: #ffffff;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.hobby-text {
+  font-weight: bold;
+}
+
+.profile-desc {
+  line-height: 1.8;
+  /* 行間を広げて読みやすく */
+  margin: 0;
+}
+
+/* 下のほう */
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  /* 全体を中央寄せ */
+  gap: 80px;
+  /* 左右のブロックの間隔 */
+  margin: 60px auto;
+  /* 上下の余白 */
+  max-width: 1000px;
+}
+
+/* --- 左側：フォームエリアの装飾 --- */
+.form-section {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  /* モダンな赤枠線 */
+  padding: 30px 40px;
+  /* 内側の余白 */
+  width: 500px;
+  /* 枠の幅 */
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.form-section h2 {
+  margin-top: 0;
+  font-weight: normal;
+}
+
+/* 青いアンダーラインのラベル */
+.custom-label {
+  text-decoration: underline;
+  text-decoration-color: #600000;
+  /* アクセントカラー */
+  text-underline-offset: 4px;
+  /* 線の位置を少し下げる */
+  margin-bottom: 5px;
+}
+
+/* 3つの入力欄 */
+.form-section input[type="text"] {
+  width: 90%;
+  display: block;
+  /* 縦に並べる */
+  margin-bottom: 5px;
+  padding: 4px;
+  border: 1px solid #f1f1f1;
+  border-radius: 20px;
+  background-color: #faf9f6;
+}
+
+/* 大きな入力欄（テキストエリア） */
+.form-section textarea {
+  width: 100%;
+  height: 200px;
+  margin-top: 15px;
+  padding: 15px;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  resize: vertical;
+  /* 縦方向のみリサイズ可能にする */
+  border-radius: 20px;
+  background-color: #faf9f6;
+}
+
+/* プレースホルダー（入力前の薄い文字）を画像のように大きく・薄くする */
+.form-section textarea::placeholder {
+  color: #b3b3b3;
+  font-size: 1.2rem;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* --- 右側：リストエリアの装飾 --- */
+.list-section {
+  width: 450px;
+}
+
+.list-section h2 {
+  font-weight: normal;
+  margin-top: 0;
+}
+
+/* リストの装飾 */
+.goal-list {
+  list-style-type: none;
+  /* デフォルトの黒丸(●)を消す */
+  padding-left: 0;
+}
+
+.goal-list li {
+  margin-bottom: 15px;
+  /* 行間を広げる */
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+.dream-text {
+  font-size: 1.1rem;
+  margin-left: 20px;
+  /* 少し右にずらす */
+  letter-spacing: 0.05em;
+}
+
+/* 陸上競技ページ */
+.video-container {
+  width: 600px;
+  /* デザインに合わせて調整してください */
+  aspect-ratio: 16 / 9;
+  /* 動画の比率 */
+  overflow: hidden;
+  /* 枠からはみ出た動画を隠す */
+
+  /* 角丸の設定：高さの半分を指定するとカプセル型になります */
+  border-radius: 200px;
+
+  /* 枠線が必要な場合 */
+  border: 2px solid #000;
+}
+
+.track-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 枠いっぱいに動画を表示させる */
+}
+
+/* フッター */
+.site-footer {
+  background-color: #600000;
+  /* 画像に近い濃い赤色 */
+  color: #ffffff;
+  /* 白文字 */
+  text-align: center;
+  /* 中央揃え */
+  padding: 20px 0;
+  /* 上下の余白 */
+  font-size: 14px;
+  /* 文字の大きさ */
+}
+
+/* 各要素の代名詞 */
+.center {
+  text-align: center;
+}
+
+/* ヘッダーロゴ */
+.header-logo {
+  text-align: right;
+}
+
+.toHP {
+  width: 15%;
+}
+
+/* HPの映像・画像枠 */
+/* ==================================
+   HPの映像・画像枠（スライダー）
+   ================================== */
+.slider-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin: 80px auto;
+  max-width: 1400px;
+}
+
+/* --- 左側：テキストエリア --- */
+.text-slider-wrapper {
+  width: 350px;
+  flex-shrink: 0;
+  min-width: 0;
+  /* ★スライダーが真っ白になるバグを回避 */
+}
+
+.slide-text-item {
+  font-family: 'Open Sans', "Noto Sans JP", sans-serif;
+  color: #000;
+  line-height: 1.8;
+}
+
+.record-date {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+}
+
+.record-event {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.record-best {
+  font-size: 1.1rem;
+  margin-bottom: 35px;
+}
+
+.record-mindset .mindset-title {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* --- 右側：映像エリア --- */
+.video-slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 850px;
+  /* カプセル枠を大きく表示 */
+  min-width: 0;
+  /* ★スライダーが真っ白になるバグを回避 */
+}
+
+.video-slider {
+  width: 100%;
+}
+
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 500px;
+  /* 綺麗なカプセル型を作る */
+  /* border: 2px solid #000; */
+}
+
+.track-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- スライダーのコントロール（矢印とドット） --- */
+.slider-controls {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ★「左矢印 → ドット → 右矢印」の順に並び替え */
+.slider-controls .slick-prev {
+  order: 1;
+}
+
+.slider-controls .slick-dots {
+  order: 2;
+}
+
+.slider-controls .slick-next {
+  order: 3;
+}
+
+/* "Previous/Next"の文字を消す */
+.slider-controls .slick-arrow {
+  background: transparent;
+  border: none;
+  color: transparent;
+  font-size: 0;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+/* 「‹」「›」のアイコン設定 */
+.slider-controls .slick-arrow::before {
+  color: #600000;
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
+
+.slider-controls .slick-prev::before {
+  content: "‹";
+}
+
+.slider-controls .slick-next::before {
+  content: "›";
+}
+
+/* ドット(●)の設定 */
+.slider-controls .slick-dots {
+  display: flex !important;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 15px;
+}
+
+.slider-controls .slick-dots li {
+  margin: 0;
+}
+
+.slider-controls .slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: rgba(96, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+.slider-controls .slick-dots li.slick-active button {
+  transform: scale(1.3);
+  background: #600000;
+}
+
+/* 陸上競技：私が速くなった要素 */
+.factors-section {
+  max-width: 1000px;
+  margin: 0 auto 80px;
+}
+
+.factors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.factor-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 35px 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1 / 1;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(96, 0, 0, 0.05);
+}
+
+.factor-card h2 {
+  font-size: 2.2rem;
+  margin: 0 0 10px 0;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.factor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.zzz-icon {
+  display: flex;
+  align-items: baseline;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  transform: rotate(-10deg);
+  margin-top: -10px;
+  margin-right: 15px;
+}
+
+.zzz-icon .z-large {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.zzz-icon .z-medium {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-left: 2px;
+  margin-bottom: 0px;
+  position: relative;
+  top: 10px;
+}
+
+.zzz-icon .z-small {
+  font-size: 1rem;
+  line-height: 1;
+  margin-left: 5px;
+  position: relative;
+  top: 25px;
+}
+
+.factor-card h3 {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0 0 25px 0;
+}
+
+.factor-card ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.factor-card ul li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.factor-card ul li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.factor-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 30px 0 auto 0;
+  text-align: left;
+}
+
+.semi-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #ccc;
+}
+
+.best_and_future_section {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto 50px;
+  gap: 40px;
+}
+
+.best-section,
+.future-section {
+  flex: 1;
+}
+
+.record-item {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 2;
+  letter-spacing: 0.05em;
+}
+
+.best-record p {
+  margin: 40px 0;
+}
+
+.future-record p {
+  margin-top: 90px;
+}
+
+/* 100M推移グラフの枠組み */
+.chart-container {
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  background-color: #FAF9F6;
+}
+
+.one_word_section {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.1rem;
+  line-height: 2;
+  letter-spacing: 0.1em;
+}
+
+.one_word_section h1 {
+  margin-bottom: 20px;
+}
+
+.achievements_section {
+  text-align: center;
+  margin-top: 80px;
+  padding-bottom: 80px;
+}
+
+.others_section {
+  max-width: 800px;
+  margin: 0 auto 80px;
+  background-color: #fff;
+  padding: 50px 40px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+}
+
+/* 趣味ページ (Hobbies) */
+.hobbies-container {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+/* タイトルの装飾 */
+.page-title-wrapper {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.page-title {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: normal;
+  position: relative;
+  padding: 0 40px 10px;
+  margin: 0;
+}
+
+/* 趣味タイトルの下線（中央が太いデザイン） */
+.page-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  /* background: black; */
+  border-radius: 50%;
+  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); */
+}
+
+.hobby-section {
+  margin-bottom: 80px;
+}
+
+/* 見出しと直線のレイアウト */
+.hobby-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.hobby-header h2 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.header-line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: black;
+}
+
+/* 左側見出し（小学校低学年） */
+.left-header h2 {
+  margin-right: 20px;
+}
+
+/* 右側見出し（現在） */
+.right-header h2 {
+  margin-left: 20px;
+}
+
+/* リストのデザイン */
+.hobby-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 0 40px;
+}
+
+.hobby-list li {
+  position: relative;
+  font-size: 1.2rem;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+  padding-left: 1.5em;
+  /* コンテンツと・の間の余白 */
+}
+
+/* custom bullet point */
+.hobby-list li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+}
+
+.history-wrapper {
+  max-width: 800px;
+  width: 100%;
+  text-align: left;
+  background-color: #fff;
+  padding: 50px 40px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 80px;
+}
+
+.history-wrapper2 {
+  display: flex;
+  justify-content: center;
+}
+
+.size-small {
+  width: 200px;
+  height: auto;
+}
+
+/* タブレット・スマホ対応 */
+@media screen and (max-width: 900px) {
+  .factors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .factors-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hobbies-container {
+    padding: 0 20px;
+  }
+
+  .hobby-list {
+    margin-left: 10px;
+  }
+}
