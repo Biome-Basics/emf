@@ -298,6 +298,13 @@ body {
   border-radius: 20px;
   transform: rotate(45deg);
   flex-shrink: 0;
+  transition: 0.3s;
+  transform: rotate(45deg);
+}
+
+.rounded-box :hover {
+  transform: rotate(0deg);
+  transition: 0.3s;
 }
 
 .myHead {
@@ -467,7 +474,7 @@ body {
 .video-container {
   width: 600px;
   /* デザインに合わせて調整してください */
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 8;
   /* 動画の比率 */
   overflow: hidden;
   /* 枠からはみ出た動画を隠す */
@@ -566,7 +573,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 850px;
+  width: 1200px;
   /* カプセル枠を大きく表示 */
   min-width: 0;
   /* ★スライダーが真っ白になるバグを回避 */
@@ -583,6 +590,7 @@ body {
   border-radius: 500px;
   /* 綺麗なカプセル型を作る */
   /* border: 2px solid #000; */
+  transform: translateX(-2px);
 }
 
 .track-video {
@@ -684,6 +692,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   margin-top: 40px;
+  transition: 0.3s;
 }
 
 .factor-card {
@@ -696,6 +705,7 @@ body {
   aspect-ratio: 1 / 1;
   border-radius: 40px;
   box-shadow: 0 4px 10px rgba(96, 0, 0, 0.05);
+  transition: 0.45s;
 }
 
 .factor-card h2 {
@@ -703,6 +713,12 @@ body {
   margin: 0 0 10px 0;
   font-weight: normal;
   line-height: 1;
+}
+
+.factors-grid :hover {
+  background-color: #fafafa;
+  transition: 0.3s;
+  transform: scale(1.05);
 }
 
 .factor-header {
